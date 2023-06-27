@@ -9,7 +9,7 @@ const Register = () => {
                     <h3>Register</h3>
                 </div>
                 <div className="card-body">
-                    <form action="">
+                    <form className='register-form'>
                         <div className="form-group">
                             <label htmlFor="username">User name</label>
                             <input type="text" className='form-control' placeholder='User name' id='username' />
@@ -37,7 +37,7 @@ const Register = () => {
                                 </div>
 
                                 <div className="file">
-                                    <label htmlFor="image">
+                                    <label htmlFor="image" id='image-label'>
                                         Select image
                                     </label>
                                     <input type="file" className='form-control' id="image" />
