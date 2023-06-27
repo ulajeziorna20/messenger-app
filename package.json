@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@reduxjs/toolkit": "^1.9.5",
     "babel-loader": "^9.1.2",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
