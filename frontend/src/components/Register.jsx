@@ -52,23 +52,23 @@ const Register = () => {
 
 
 
-    // const register = (e) => {
-    //     e.preventDefault()
+    const register = (e) => {
+        e.preventDefault()
 
-    //     // destrukturyzacja stanu formData
-    //     const { username, email, password, confirmPassword, image } = formData
+        // destrukturyzacja stanu formData
+        const { username, email, password, confirmPassword, image } = formData
 
-    //     const usersRegisterData = new FormData()
+        const usersRegisterData = new FormData()
 
-    //     usersRegisterData.append('username', username)
-    //     usersRegisterData.append('email', email)
-    //     usersRegisterData.append('password', password)
-    //     usersRegisterData.append('confirmPassword', confirmPassword)
-    //     usersRegisterData.append('image', image)
+        usersRegisterData.append('username', username)
+        usersRegisterData.append('email', email)
+        usersRegisterData.append('password', password)
+        usersRegisterData.append('confirmPassword', confirmPassword)
+        usersRegisterData.append('image', image)
 
 
-    //     dispatch(userRegister(usersRegisterData))
-    // }
+        dispatch(userRegister(usersRegisterData))
+    }
 
 
 
@@ -79,7 +79,7 @@ const Register = () => {
                     <h3>Register</h3>
                 </div>
                 <div className="card-body">
-                    <form className='register-form' >
+                    <form className='register-form' onSubmit={(e) => register(e)}>
                         <div className="form-group">
                             <label htmlFor="username">User name</label>
                             <input
