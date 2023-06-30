@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
+import { useDispatch } from 'react-redux';
+import { userRegister } from '../store/actions/authAction';
+
 const Register = () => {
+
+
+    const dispatch = useDispatch()
 
     const [formData, setFormData] = useState({
         username: '',
@@ -48,8 +55,21 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault()
 
-        console.log(formData);
+        // destrukturyzacja stanu formData
+        const { username, email, password, confirmPassword, image } = formData
+
+        const usersRegisterData = new FormData()
+
+        usersRegisterData.append('username', username)
+        usersRegisterData.append('email', email)
+        usersRegisterData.append('password', password)
+        usersRegisterData.append('confirmPassword', confirmPassword)
+        usersRegisterData.append('image', image)
+
+
+        dispatch(userRegister(usersRegisterData))
     }
+
 
 
     return (
