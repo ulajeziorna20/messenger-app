@@ -19,7 +19,7 @@ module.exports = {
 
         // reader.readAsBinaryString(myFile);
 
-        console.log(JSON.parse(req.body));
+        console.log(req.body);
 
         console.log('register is working');
     }
