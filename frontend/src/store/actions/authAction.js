@@ -4,16 +4,17 @@ export const userRegister = (data) => {
     return async (dispatch) => {
         const config = {
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Accept": "application/json"
             }
         }
         try {
-            const response = await axios.post('/api/messenger/user-register', data, config)
+            const response = await axios.post('/api/messenger/user-register', JSON.stringify(data), config)
 
-            console.log(response.data);
+            // console.log(response);
         }
         catch (error) {
-            console.log(error.response.data);
+            console.log(error.response);
         }
     }
 }  

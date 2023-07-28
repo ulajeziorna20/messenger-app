@@ -38,7 +38,12 @@ const Register = () => {
         if (e.target.files.length !== 0) {
             setFormData({
                 ...formData,
-                [e.target.name]: e.target.files[0]
+                [e.target.name]:  {
+                    name: e.target.files[0].name,
+                    size: e.target.files[0].size,
+                    type: e.target.files[0].type,
+                    lastModified: e.target.files[0].lastModified
+                }
             })
         }
 
