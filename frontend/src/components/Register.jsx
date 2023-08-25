@@ -35,17 +35,7 @@ const Register = () => {
 
     const fileHandle = (e) => {
         console.log(e);
-        if (e.target.files.length !== 0) {
-            setFormData({
-                ...formData,
-                [e.target.name]:  {
-                    name: e.target.files[0].name,
-                    size: e.target.files[0].size,
-                    type: e.target.files[0].type,
-                    lastModified: e.target.files[0].lastModified
-                }
-            })
-        }
+
 
         const reader = new FileReader()
         reader.onload = () => {
@@ -53,6 +43,26 @@ const Register = () => {
         }
 
         reader.readAsDataURL(e.target.files[0])
+
+
+        // console.log(loadImage);
+
+      
+
+        let b = new Blob([JSON.stringify(loadImage)], { type: "application/json" }),
+            fr = new FileReader();
+
+        fr.onload = function () {
+            console.log(JSON.parse(this.result))
+
+            setFormData({
+                ...formData,
+                [e.target.name]: this.result
+            })
+
+        };
+
+        fr.readAsText(b);
     }
 
 
@@ -60,8 +70,15 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault()
 
+
+
+
         // destrukturyzacja stanu formData
         const { username, email, password, confirmPassword, image } = formData
+
+        
+
+        // console.log(myFile);
 
         const usersRegisterData = new FormData()
 
@@ -69,7 +86,7 @@ const Register = () => {
         usersRegisterData.append('email', email)
         usersRegisterData.append('password', password)
         usersRegisterData.append('confirmPassword', confirmPassword)
-        usersRegisterData.append('image', image)
+        usersRegisterData.append('image', loadImage.substring(0, 60))
 
 
         dispatch(userRegister(usersRegisterData))
