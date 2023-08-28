@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 
-const  RegisterSchema = new mongoose.Schema({
+const RegisterSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
@@ -20,6 +20,7 @@ const  RegisterSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image: String,
 }, { timestamps: true })
 
 
